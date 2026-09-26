@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PRIVATE — Docs</title>
+<title>INTERNAL X — Guides</title>
 <style>
   :root{
     --bg: #0a0a0a;
@@ -28,7 +28,8 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Noto Sans JP", Roboto, Arial, sans-serif;
     min-height: 100vh;
   }
-  a{ color: inherit; text-decoration: none; }
+  a{ color: var(--accent); text-decoration: none; word-break: break-all; }
+  a:hover{ text-decoration: underline; }
 
   /* ---------- Header ---------- */
   header{
@@ -76,7 +77,7 @@
   aside.sidebar::-webkit-scrollbar{ width:6px; }
   aside.sidebar::-webkit-scrollbar-track{ background:transparent; }
   aside.sidebar::-webkit-scrollbar-thumb{ background: var(--accent); border-radius:3px; }
-  aside.sidebar::-webkit-scrollbar-thumb:hover{ background:#ff4a63; }
+  
   .search-box{
     display:flex; align-items:center; gap:8px;
     background: var(--panel);
@@ -167,27 +168,17 @@
   p.page-lead{
     color: var(--text-dim); font-size:16.5px; line-height:1.75; margin: 0 0 38px;
   }
-  h2.section-title{
-    font-size:21px; font-weight:700; margin: 38px 0 14px;
-    padding-bottom:9px; border-bottom:1px solid var(--panel-border);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  h2.section-title svg{
-    width: 22px;
-    height: 22px;
-    color: var(--accent);
-    flex-shrink: 0;
-  }
+  
   p, li{ color: var(--text-dim); font-size:16px; line-height:1.85; }
   ol, ul{ padding-left: 22px; margin: 10px 0; }
-  li{ margin-bottom:8px; }
-  li::marker{ color: var(--accent); }
+  li{ margin-bottom:12px; }
+  li::marker{ color: var(--accent); font-weight: bold; }
+  
   code, .inline-code{
     background: var(--panel); border:1px solid var(--panel-border);
-    padding:2px 7px; border-radius:5px; font-size:14px; color:#ff9aa6;
+    padding:2px 8px; border-radius:5px; font-size:14px; color:#ff9aa6;
     font-family: "SFMono-Regular", Consolas, Menlo, monospace;
+    font-weight: 600;
   }
 
   /* Section Box Card */
@@ -195,14 +186,14 @@
     background: var(--panel);
     border: 1px solid var(--panel-border);
     border-radius: 10px;
-    padding: 20px;
+    padding: 24px;
     margin-bottom: 24px;
   }
   .prep-card-header{
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
   }
   .prep-card-header svg{
     width: 20px;
@@ -211,18 +202,9 @@
     flex-shrink: 0;
   }
   .prep-card-title{
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 700;
     color: var(--text);
-  }
-  .note-box{
-    background: rgba(224,50,74,0.08);
-    border-left: 3px solid var(--accent);
-    padding: 10px 14px;
-    border-radius: 0 6px 6px 0;
-    margin-top: 12px;
-    font-size: 14px;
-    color: var(--text-dim);
   }
 
   .faq{
@@ -233,8 +215,8 @@
   .faq-item:last-child{ border-bottom:none; }
   .faq-question{
     display:flex; align-items:center; justify-content:space-between;
-    gap:10px; padding:16px 18px; background:var(--panel);
-    font-weight:700; font-size:15.5px; color:var(--text); cursor:pointer;
+    gap:10px; padding:18px 20px; background:var(--panel);
+    font-weight:700; font-size:16px; color:var(--text); cursor:pointer;
     transition: background .12s ease;
   }
   .faq-question:hover{ background: rgba(255,255,255,0.04); }
@@ -242,21 +224,19 @@
   .faq-item.open .faq-question svg{ transform: rotate(180deg); }
   .faq-answer{ max-height:0; overflow:hidden; transition: max-height .25s ease; background:var(--panel); }
   .faq-item.open .faq-answer{ max-height: 2000px; }
-  .faq-answer-inner{ padding:0 18px 18px; }
-  .faq-answer-inner p{ margin:0 0 12px; }
-  .faq-answer-inner p:last-child{ margin-bottom:0; }
+  .faq-answer-inner{ padding:0 20px 20px; }
 
   .card-grid{
-    display:grid; grid-template-columns: 1fr; gap:14px; margin: 18px 0 8px;
+    display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin: 18px 0 8px;
   }
   .card{
     background: var(--panel); border:1px solid var(--panel-border);
-    border-radius:10px; padding:16px 18px; transition: border-color .15s ease, transform .15s ease;
+    border-radius:10px; padding:20px; transition: border-color .15s ease, transform .15s ease;
     cursor:pointer;
   }
   .card:hover{ border-color: var(--panel-border-hover); transform: translateY(-2px); }
-  .card-title{ font-size:15px; font-weight:700; margin-bottom:5px; display:flex; align-items:center; gap:8px;}
-  .card-title svg{ width:16px; height:16px; color: var(--accent); }
+  .card-title{ font-size:16px; font-weight:700; margin-bottom:6px; display:flex; align-items:center; gap:8px;}
+  .card-title svg{ width:18px; height:18px; color: var(--accent); }
   .card-desc{ font-size:13.5px; color: var(--text-faint); line-height:1.6; }
 
   .welcome-emoji{ font-size:44px; margin-bottom:10px; }
@@ -273,6 +253,7 @@
   @media (max-width: 900px){
     aside.sidebar{ display:none; }
     main{ padding: 28px 20px 80px; }
+    .card-grid{ grid-template-columns: 1fr; }
   }
 
   /* ---------- Scroll reveal ---------- */
@@ -292,376 +273,189 @@
 </style>
 </head>
 <body>
-
 <header>
   <div class="brand">
-    <svg viewBox="0 0 24 24" fill="none"><path d="M12 2L21 6.5V13C21 17.5 17.5 21.2 12 22C6.5 21.2 3 17.5 3 13V6.5L12 2Z" stroke="#e0324a" stroke-width="1.6" fill="rgba(224,50,74,0.15)"/><path d="M8.5 12.5L11 15L15.5 9.5" stroke="#e0324a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    PRIVATE
+    <svg viewBox="0 0 24 24" fill="none">
+      <path d="M12 2L21 6.5V13C21 17.5 17.5 21.2 12 22C6.5 21.2 3 17.5 3 13V6.5L12 2Z"
+            stroke="#e0324a" stroke-width="1.6" fill="rgba(224,50,74,0.15)"/>
+      <path d="M8.5 12.5L11 15L15.5 9.5" stroke="#e0324a" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    INTERNAL X
   </div>
 </header>
 
 <div class="shell">
   <aside class="sidebar">
     <div class="search-box">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/>
+      </svg>
       ドキュメントを検索…
     </div>
 
     <div class="nav-group">
-      <div class="nav-group-title">はじめに</div>
+      <div class="nav-group-title">GUIDES</div>
       <div class="nav-item active" data-page="welcome">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 12H3M9 6l-6 6 6 6"/><path d="M14 6h7v12h-7"/></svg>
-        👋 ようこそ！
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M11 12H3M9 6l-6 6 6 6"/><path d="M14 6h7v12h-7"/>
+        </svg>
+        👋 ようこそ
+      </div>
+      <div class="nav-item" data-page="getting-started">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 3v12m0 0l-4.5-4.5M12 15l4.5-4.5"/>
+          <path d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"/>
+        </svg>
+        Getting Started
       </div>
     </div>
 
     <div class="nav-group">
-      <div class="nav-item" data-page="prerequisites">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
-        事前準備
-      </div>
-      <div class="nav-item" data-page="install">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4.5-4.5M12 15l4.5-4.5"/><path d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg>
-        使用方法（VALORANT FULL）
-      </div>
-    </div>
-
-    <div class="nav-group">
-      <div class="nav-category open" data-cat="fix-tab">
+      <div class="nav-category open">
         <span class="cat-left">
-          <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 005.4-5.4l-2.1 2.1-2.6-.6-.6-2.6z"/></svg>
-          修正
+          <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 005.4-5.4l-2.1 2.1-2.6-.6-.6-2.6z"/>
+          </svg>
+          Support
         </span>
-        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 9l6 6 6-6"/>
+        </svg>
       </div>
       <div class="nav-subitems">
-        <div class="nav-item" data-page="error-fix">トラブルシューティング</div>
+        <div class="nav-item" data-page="troubleshooting">Troubleshooting</div>
       </div>
     </div>
   </aside>
 
   <main>
-
-    <!-- Welcome -->
+    <!-- Welcome Page -->
     <section class="doc-page active" id="page-welcome">
-      <div class="eyebrow">Docs / はじめに</div>
+      <div class="eyebrow">Internal X / Guides</div>
       <div class="welcome-emoji">👋</div>
-      <h1 class="page-title">ようこそ！</h1>
-      <p class="page-lead">ドキュメントサイトへようこそ。左のメニューから、目的の項目を選んでください。</p>
+      <h1 class="page-title">Internal X Guides</h1>
+      <p class="page-lead">
+        Internal X のセットアップ手順およびトラブルシューティングガイドです。
+        左側のメニューまたは下のカードから選択してください。
+      </p>
 
       <div class="card-grid">
-        <div class="card" data-goto="prerequisites">
-          <div class="card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>事前準備</div>
-          <div class="card-desc">製品を安全かつ正常に動作させるためのPC設定手順。</div>
+        <div class="card" data-goto="getting-started">
+          <div class="card-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 3v12m0 0l-4.5-4.5M12 15l4.5-4.5"/>
+              <path d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"/>
+            </svg>
+            Getting Started
+          </div>
+          <div class="card-desc">Loaderのダウンロード手順および起動ステップ。</div>
         </div>
-        <div class="card" data-goto="install">
-          <div class="card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4.5-4.5M12 15l4.5-4.5"/><path d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg>使用方法（VALORANT FULL）</div>
-          <div class="card-desc">VALORANT FULLの利用手順とセットアップガイド。</div>
+
+        <div class="card" data-goto="troubleshooting">
+          <div class="card-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 005.4-5.4l-2.1 2.1-2.6-.6-.6-2.6z"/>
+            </svg>
+            Troubleshooting
+          </div>
+          <div class="card-desc">Inject時のクラッシュ対処法（VPN設定、時刻同期など）。</div>
         </div>
       </div>
     </section>
 
-    <!-- 事前準備 -->
-    <section class="doc-page" id="page-prerequisites">
-      <div class="eyebrow">Docs</div>
-      <h1 class="page-title">事前準備</h1>
-      <p class="page-lead">本製品を使用する前に、必ず以下のPC設定およびゲーム内設定を完了させてください。</p>
+    <!-- Getting Started Page -->
+    <section class="doc-page" id="page-getting-started">
+      <div class="eyebrow">Internal X / Guides</div>
+      <h1 class="page-title">Getting Started</h1>
+      <p class="page-lead">導入手順と基本操作メニューです。</p>
 
-      <!-- 画面モード：ウィンドウフルスクリーン -->
       <div class="prep-card">
         <div class="prep-card-header">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
-          <span class="prep-card-title">VALORANTの画面モードを「ウィンドウフルスクリーン」にする（必須）</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2v20M2 12h20"/>
+          </svg>
+          <span class="prep-card-title">導入手順</span>
         </div>
-        <p>オーバーレイ機能およびメニューを正常に表示するため、VALORANTのグラフィック設定で表示モードを<strong>「ウィンドウフルスクリーン（Windowed Fullscreen）」</strong>に設定してください。</p>
-      </div>
-
-      <!-- メモリ整合性 -->
-      <div class="prep-card">
-        <div class="prep-card-header">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          <span class="prep-card-title">メモリ整合性を有効にする（必須）</span>
-        </div>
-        <p>本製品を動作させるには、メモリ整合性保護（HVCI）を有効にする必要があります。ほとんどのPCでは、この機能はデフォルトで有効になっています。</p>
-        <p><strong>方法:</strong></p>
         <ol>
-          <li><code>Win + I</code> を押して設定を開きます。</li>
-          <li><strong>プライバシーとセキュリティ</strong> → <strong>Windows セキュリティ</strong> に移動します。</li>
-          <li><strong>デバイスのセキュリティ</strong> をクリックします。</li>
-          <li><strong>コア分離の詳細</strong> をクリックします。</li>
-          <li><strong>メモリ整合性</strong> を「オン」にして有効化します。</li>
-          <li>パソコンを再起動してください。</li>
-        </ol>
-        <div class="note-box">
-          <strong>注：</strong>これはWindowsのデフォルト設定です。以前別の製品で無効にしていた場合は、再度有効にする必要があります。
-        </div>
-      </div>
-
-      <!-- ウイルス対策 -->
-      <div class="prep-card">
-        <div class="prep-card-header">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-          <span class="prep-card-title">ウイルス対策ソフトを無効にする</span>
-        </div>
-        <p>ローダーを実行する前に、Windows Defenderのリアルタイム保護機能とサードパーティ製のウイルス対策ソフトをすべて無効にしてください。</p>
-      </div>
-
-      <!-- VALORANTの終了 -->
-      <div class="prep-card">
-        <div class="prep-card-header">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M9 9l6 6m0-6l-6 6"/></svg>
-          <span class="prep-card-title">VALORANTが実行中の場合は終了してください</span>
-        </div>
-        <p>ローダーを起動する際は、ゲームが実行されていない状態にしてください。まずVALORANTを完全に終了させて​​ください。</p>
-      </div>
-
-      <!-- Discord ハードウェアアクセラレーション -->
-      <div class="prep-card">
-        <div class="prep-card-header">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-          <span class="prep-card-title">Discordでハードウェアアクセラレーションを無効にする</span>
-        </div>
-        <p>オーバーレイを表示するには、Discordのハードウェアアクセラレーションをオフにする必要があります。ローダーはこれを自動的にチェックします。</p>
-        <p><strong>方法:</strong></p>
-        <ol>
-          <li>Discordを開く</li>
-          <li>左下にある歯車アイコン（ユーザー設定）をクリックします。</li>
-          <li>下にスクロールして「詳細設定」をクリックします。</li>
-          <li>「ハードウェアアクセラレーション」をオフにする</li>
-          <li>Discordが再起動を促したら「OK」をクリックします。</li>
+          <li>
+            以下のリンクからLoaderをダウンロードします。<br>
+            <a href="https://cdn.discordapp.com/attachments/1547788066708525056/1548203144255770624/Latest.rar?ex=6ab60609&is=6ab4b489&hm=3f2342676056569f531376916622d0b0a2e49f27baea49cfc43295952c36a9ac&" target="_blank" rel="noopener">Loaderをダウンロード（Latest.rar）</a>
+          </li>
+          <li>Loaderを開いてライセンスキーを入力します。</li>
+          <li>
+            Custom Modelを導入するか確認が表示されます。
+            <ul>
+              <li>導入する場合 ➔ <code>Y</code> を入力</li>
+              <li>しない場合 ➔ <code>N</code> を入力</li>
+            </ul>
+          </li>
+          <li>画面に <code>Open Valorant</code> と表示されたら、VALORANTを起動してください。</li>
         </ol>
       </div>
 
-      <!-- Discord オーバーレイ -->
       <div class="prep-card">
         <div class="prep-card-header">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          <span class="prep-card-title">Discordオーバーレイを有効にする（必須）</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M15 7h1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1"/>
+            <path d="M9 3h6v4H9z"/>
+          </svg>
+          <span class="prep-card-title">操作方法</span>
         </div>
-        <p>Discordはゲーム内オーバーレイを有効にした状態で実行する必要があります。ESPやその他のビジュアルはDiscordのオーバーレイを通して表示されます。</p>
-        <p><strong>方法:</strong></p>
-        <ol>
-          <li>Discordを開く</li>
-          <li>歯車アイコン（ユーザー設定）をクリックします。</li>
-          <li>「ゲームオーバーレイ」（アクティビティ設定内）に移動します。</li>
-          <li>レガシーオーバーレイがオフになっていることを確認してください。</li>
-          <li>「ゲーム内オーバーレイを有効にする」をオンにする</li>
-          <li>プレイ中はDiscordを起動したままにしておく</li>
-        </ol>
-        <div class="note-box">
-          <strong>オーバーレイが表示されない場合：</strong><br>
-          • Discordの任意のボイスチャンネルに参加する<br>
-          • ゲームオーバーレイ → 詳細設定でVALORANTがブロックされていないことを確認してください。<br>
-          • Discordを再起動してゲームを再起動する
-        </div>
-      </div>
-
-      <!-- FACEIT アンインストール -->
-      <div class="prep-card">
-        <div class="prep-card-header">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
-          <span class="prep-card-title">FACEITをアンインストールする（インストールされている場合）</span>
-        </div>
-        <p>FACEITアンチチートがローダーをブロックします。インストールされている場合は、完全にアンインストールしてからPCを再起動してください。</p>
+        <ul>
+          <li><strong>メニューキー：</strong> <code>K</code></li>
+        </ul>
       </div>
 
       <div class="prev-next">
-        <a class="pn-link" data-goto="welcome"><span class="pn-label">前へ</span><span class="pn-name">← ようこそ！</span></a>
-        <a class="pn-link" data-goto="install" style="text-align:right;"><span class="pn-label">次へ</span><span class="pn-name">使用方法（VALORANT FULL） →</span></a>
+        <a class="pn-link" data-goto="welcome">
+          <span class="pn-label">前へ</span><span class="pn-name">← ようこそ</span>
+        </a>
+        <a class="pn-link" data-goto="troubleshooting" style="text-align:right;">
+          <span class="pn-label">次へ</span><span class="pn-name">Troubleshooting →</span>
+        </a>
       </div>
     </section>
 
-    <!-- インストール / VALORANT FULL利用手順 -->
-    <section class="doc-page" id="page-install">
-      <div class="eyebrow">Docs</div>
-      <h1 class="page-title">使用方法ガイド</h1>
-      <p class="page-lead">VALORANT FULLの導入手順および使用方法です。</p>
-
-      <h2 class="section-title">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-        1. 必要なファイルのインストール
-      </h2>
-      <p>まず、以下のWebサイトから必要なコンポーネントをすべてインストールしてください。</p>
-      <ul>
-        <li><a href="https://proswipexyz-sys.github.io/install/" target="_blank" style="color:var(--accent); text-decoration:underline;">https://proswipexyz-sys.github.io/install/</a></li>
-      </ul>
-
-      <h2 class="section-title">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 005.4-5.4l-2.1 2.1-2.6-.6-.6-2.6z"/></svg>
-        2. セットアップおよび起動手順
-      </h2>
-      <ol>
-        <li><a href="https://ez-val.com" target="_blank" style="color:var(--accent); text-decoration:underline;">https://ez-val.com</a> にアクセスする。</li>
-        <li>アカウント（UsernameとPassword）を設定して登録する。</li>
-        <li>登録完了後、ログインする。</li>
-        <li>ログイン完了後、<strong>VALORANT</strong>タブに移動し、一番下の <strong>VALORANT FULL</strong> の Activate key に受け取った有効なライセンスキーを入力して <strong>Active</strong> を押す。</li>
-        <li>完了したら <strong>Download</strong> ボタンを押してローダーがダウンロードされるのを待つ。</li>
-        <li>ダウンロード完了後、ローダーを管理者権限で実行する。自動でWebsiteに飛ばされるので、現在有効なライセンスキーを選択し、<strong>Launch</strong> ボタンを押す。</li>
-        <li>全てのプロセスがエラーなく完了したら、Enterキーを押してValorantを起動する。</li>
-        <li>Valorantのロビー内で <code>Insert</code> キー（キーボードにない場合はスクリーンキーボードを使用）を押す。</li>
-        <li>メニューが表示されるので、そこから設定してプレイ可能。</li>
-      </ol>
-
-      <div class="prev-next">
-        <a class="pn-link" data-goto="prerequisites"><span class="pn-label">前へ</span><span class="pn-name">← 事前準備</span></a>
-        <a class="pn-link" data-goto="error-fix" style="text-align:right;"><span class="pn-label">次へ</span><span class="pn-name">トラブルシューティング →</span></a>
-      </div>
-    </section>
-
-    <!-- エラー修正 / トラブルシューティング -->
-    <section class="doc-page" id="page-error-fix">
-      <div class="eyebrow">Docs / 修正</div>
-      <h1 class="page-title">トラブルシューティング</h1>
-      <p class="page-lead">よくあるエラーや不具合の対処法まとめです。</p>
+    <!-- Troubleshooting Page -->
+    <section class="doc-page" id="page-troubleshooting">
+      <div class="eyebrow">Internal X / Support</div>
+      <h1 class="page-title">Troubleshooting</h1>
+      <p class="page-lead">エラーや問題が発生した場合の修正手順です。</p>
 
       <div class="faq">
-
-        <!-- FPSの低下 -->
-        <div class="faq-item">
+        <div class="faq-item open">
           <div class="faq-question">
-            <span>FPSの低下・動作が重い</span>
-            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            <span>Inject時にVALORANTがクラッシュする場合</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
           </div>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              <p>以下の機能はFPSを特に消費しやすいため、設定を見直すことでパフォーマンスが向上します。</p>
-              <p><strong>【FPSを最も消費する機能（負荷が大きい順）】</strong></p>
               <ol>
-                <li><strong>長距離でのオブジェクト/戦利品ESP</strong>
-                  <br>— 解決策：最大距離スライダー（Max Distance）を下げてください。
+                <li>
+                  <strong>VPNの使用：</strong><br>
+                  1.1.1.1 VPNを導入・使用してください。<br>
+                  👉 <a href="https://one.one.one.one/" target="_blank" rel="noopener">https://one.one.one.one/</a>
                 </li>
-                <li><strong>光る骨格の輪郭（スケルトンアウトライン）</strong>
-                  <br>— 解決策：アウトラインを無効にするか、太さを小さくしてください。
+                <li>
+                  <strong>環境の調整：</strong><br>
+                  上記で治らない場合、Windowsの「時刻の同期」を実行し、PCを再起動してください。
                 </li>
-                <li><strong>画面外の矢印（Offscreen Indicators）</strong>
-                  <br>— 解決策：不要な場合は無効にしてください。
-                </li>
-                <li><strong>レーダー（広範囲ズーム）</strong>
-                  <br>— 解決策：ズーム範囲を狭めるか無効化を試してください。
-                </li>
-                <li><strong>GPUを使用するバックグラウンドアプリ</strong>
-                  <br>— 解決策：Discordオーバーレイ、ブラウザ、OBSなどの不要なアプリを終了してください。
-                </li>
-              </ol>
-              <div class="note-box">
-                <strong>ヒント：</strong>「戦闘モード（Combat Mode）」を使用すると、戦闘中に不要なビジュアル機能を自動的に非表示にしてパフォーマンスを維持できます。
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- HWIDが一致しません -->
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>HWIDが一致しません (HWID Mismatch)</span>
-            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-          </div>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              <p>ライセンスキーは、最初に使用されたPCのハードウェア（HWID）に紐付けられています。</p>
-              <p>PCを買い替えたり、Windowsを再インストールしたりした場合は、Webサイト画面右下にある<strong>AIサポートチャット</strong>を使ってHWIDのリセットをリクエストしてください。ボットが本人確認を行い、自動的にリセットを完了します。</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- メニューが表示されない -->
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>メニューが表示されない</span>
-            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-          </div>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              <p>キーボードの <code>INSERT</code> キーを押してください（ほとんどのキーボードでは矢印キーの上にあります）。</p>
-              <ul>
-                <li><strong>ゲームウィンドウへのフォーカス:</strong> メニューを開く前に、まずゲーム画面を一度クリックしてフォーカスを合わせてください。</li>
-                <li><strong>ノートパソコンをご利用の場合:</strong> <code>Fn + INSERT</code> キーを試してください。</li>
-                <li><strong>60%キーボード等の場合:</strong> キーボードレイアウトによってINSERTキーの割り当てや組み合わせ（<code>Fn + Esc</code> など）が異なります。お使いのモデルのショートカットをご確認ください。</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- ESPが表示されない -->
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>ESPが表示されない</span>
-            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-          </div>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              <p>以下の設定・確認を行ってください：</p>
-              <ol>
-                <li><strong>ゲームが始まるまで待つ:</strong> エージェント選択画面が終わった後の実際のラウンド（フル装備時）から描画が開始されます。</li>
-                <li><strong>Visualsタブの確認:</strong> メニューの「Visuals」タブを開き、ESP機能自体が有効化されているかチェックしてください。</li>
-                <li><strong>最大距離スライダーの確認:</strong> 「Max Distance（最大距離）」スライダーの設定値が低すぎないか確認してください。</li>
-                <li><strong>味方ESPの設定:</strong> 味方のESPはデフォルトでオフになっています。チームメイトを表示したい場合は個別に有効化してください。</li>
               </ol>
             </div>
           </div>
         </div>
-
-        <!-- サインイン失敗エラー -->
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>サインイン失敗エラー</span>
-            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-          </div>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              <p>ほとんどの場合、PCの時計の同期がずれていることが原因です。</p>
-              <p><strong>修正方法：</strong></p>
-              <ol>
-                <li><code>設定</code> → <code>時刻と言語</code> → <code>日付と時刻</code> を開く</li>
-                <li>「時刻を自動設定する」を一度<strong>オフ</strong>にする</li>
-                <li>2〜3秒待ってから、再び<strong>オン</strong>に切り替える</li>
-                <li>「今すぐ同期」ボタンをクリックする</li>
-                <li>ローダーを再起動する</li>
-              </ol>
-              <p>※問題が解決しない場合は、インターネット接続を確認し、別のDNSサーバー（<code>1.1.1.1</code> または <code>8.8.8.8</code>）を試してみてください。</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- サーバーに接続できませんでした -->
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>サーバーに接続できませんでした</span>
-            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-          </div>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              <p>ローダーの動作にはインターネットへの直接接続が必要です。</p>
-              <ul>
-                <li>VPNやプロキシを<strong>無効</strong>にしてください。</li>
-                <li>Windowsファイアウォールやセキュリティソフトが、ローダーの実行ファイル（発信接続）をブロックしていないか確認してください。</li>
-                <li>可能であれば別のネットワーク回線を試してみてください。</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- Windows バージョン関係エラー -->
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Windows バージョン関係エラー</span>
-            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-          </div>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              <p>Windows Updateをお試しください。</p>
-            </div>
-          </div>
-        </div>
-
       </div>
 
       <div class="prev-next">
-        <a class="pn-link" data-goto="install"><span class="pn-label">前へ</span><span class="pn-name">← 使用方法（VALORANT FULL）</span></a>
+        <a class="pn-link" data-goto="getting-started">
+          <span class="pn-label">前へ</span><span class="pn-name">← Getting Started</span>
+        </a>
         <div></div>
       </div>
     </section>
-
   </main>
 </div>
 
@@ -691,7 +485,7 @@
 
   function showPage(name){
     pages.forEach(p => p.classList.toggle('active', p.id === 'page-' + name));
-    document.querySelectorAll('.nav-item, .nav-category').forEach(el => {
+    document.querySelectorAll('.nav-item').forEach(el => {
       el.classList.toggle('active', el.dataset.page === name);
     });
     const activePage = document.getElementById('page-' + name);
@@ -709,13 +503,7 @@
   });
 
   document.querySelectorAll('.nav-category').forEach(cat => {
-    cat.addEventListener('click', (e) => {
-      cat.classList.toggle('open');
-      if (cat.dataset.page) {
-        e.preventDefault();
-        showPage(cat.dataset.page);
-      }
-    });
+    cat.addEventListener('click', () => cat.classList.toggle('open'));
   });
 
   document.querySelectorAll('.faq-question').forEach(q => {
